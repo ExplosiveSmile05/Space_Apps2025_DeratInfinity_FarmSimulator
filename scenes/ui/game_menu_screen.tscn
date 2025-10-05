@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://cly8e6qu4m21v"]
+
+[ext_resource type="Theme" uid="uid://c7pbveq2nd82a" path="res://scenes/ui/game_ui_theme.tres" id="1_5slcd"]
+[ext_resource type="PackedScene" uid="uid://b5t3nurrdsa34" path="res://scenes/ui/game_menu_screen_background.tscn" id="1_arotu"]
+[ext_resource type="Script" uid="uid://cpdyq5ycn7jy5" path="res://scenes/ui/game_menu_screen.gd" id="1_l5nq4"]
+
+[node name="GameMenuScreen" type="CanvasLayer"]
+script = ExtResource("1_l5nq4")
+
+[node name="GameMenuScreenBackground" parent="." instance=ExtResource("1_arotu")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5slcd")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/paragraph_spacing = 2
+theme_override_constants/shadow_offset_x = 2
+text = "CROPTAILS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "Start"
+
+[node name="SaveGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "Save"
+
+[node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="_on_save_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]

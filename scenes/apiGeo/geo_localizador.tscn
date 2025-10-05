@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://rn2k552p10qq"]
+
+[ext_resource type="Script" uid="uid://bt5a7eg08loli" path="res://scripts/globals/geolocalizador.gd" id="1_1688b"]
+
+[node name="GeoLocalizador" type="Node2D"]
+script = ExtResource("1_1688b")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
