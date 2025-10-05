@@ -8,8 +8,6 @@
 [node name="TestSceneDayAndNightCycle" type="Node2D"]
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_2m7t0")]
-initial_day = 6
-initial_hour = 14
 
 [node name="GameTileMap" type="Node2D" parent="."]
 
