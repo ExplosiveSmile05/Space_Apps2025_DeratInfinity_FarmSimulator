@@ -18,9 +18,9 @@ script = ExtResource("2_xc6ft")
 [node name="DayPanel" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = -81.0
-offset_top = 28.0
+offset_top = 1.0
 offset_right = -1.0
-offset_bottom = 54.0
+offset_bottom = 27.0
 theme_type_variation = &"DayAndNightCounterPanel"
 metadata/_edit_group_ = true
 
@@ -39,10 +39,10 @@ text = "Day 0"
 
 [node name="TimePanel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = -81.0
-offset_top = 55.0
-offset_right = -1.0
-offset_bottom = 81.0
+offset_left = -162.0
+offset_top = 1.0
+offset_right = -82.0
+offset_bottom = 27.0
 theme_type_variation = &"DayAndNightCounterPanel"
 metadata/_edit_group_ = true
 
@@ -62,10 +62,10 @@ text = "00:00"
 [node name="Location" type="PanelContainer" parent="."]
 layout_direction = 3
 layout_mode = 2
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 81.0
-offset_bottom = 27.0
+offset_left = 82.0
+offset_top = 28.0
+offset_right = 162.0
+offset_bottom = 54.0
 theme_type_variation = &"DayAndNightCounterPanel"
 metadata/_edit_group_ = true
 
@@ -80,14 +80,38 @@ theme_override_constants/margin_bottom = 3
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"DayAndNightLabel"
-text = "00:00"
+text = "City"
+
+[node name="Temperature" type="PanelContainer" parent="."]
+layout_direction = 3
+layout_mode = 2
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 81.0
+offset_bottom = 64.0
+theme_type_variation = &"DayAndNightCounterPanel"
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Temperature"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="temperatureLabel" type="Label" parent="Temperature/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DayAndNightLabel"
+text = "0°C"
 
 [node name="Control" type="Control" parent="."]
 visible = false
 anchors_preset = 0
-offset_left = -80.0
-offset_top = 83.0
-offset_bottom = 101.0
+offset_left = -81.0
+offset_top = 65.0
+offset_right = -1.0
+offset_bottom = 83.0
 
 [node name="NormalSpeedButton" type="Button" parent="Control"]
 layout_mode = 0

@@ -4,6 +4,7 @@ extends Node
 
 const API_KEY = "e839b932e3ca7ad602e999c88625f8bc"
 @onready var location_label: Label = $"../Location/MarginContainer/LocationLabel"
+@onready var temperature_label: Label = $"../Temperature/MarginContainer/temperatureLabel"
 
 func _ready():
 	add_child(http)
@@ -48,6 +49,7 @@ func obtener_clima(lat: float, lon: float, ciudad: String, pais: String):
 		var temperatura = clima_data["main"]["temp"]
 		var descripcion = clima_data["weather"][0]["description"]
 
+		temperature_label.text = str(temperatura, "°C")
 		print("Clima en %s (%s): %s°C, %s" % [ciudad, pais, temperatura, descripcion])
 		decidir_cultivos(ciudad, pais, temperatura, descripcion)
 	)
