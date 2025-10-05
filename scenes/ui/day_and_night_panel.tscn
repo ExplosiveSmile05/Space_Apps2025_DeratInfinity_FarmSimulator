@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl7abywygvtwl"]
+[gd_scene load_steps=6 format=3 uid="uid://cl7abywygvtwl"]
 
 [ext_resource type="Theme" uid="uid://c7pbveq2nd82a" path="res://scenes/ui/game_ui_theme.tres" id="1_fnqby"]
 [ext_resource type="Texture2D" uid="uid://dche00u752ksa" path="res://assets/ui/basic_ui_sprites.png" id="2_25t5k"]
 [ext_resource type="Script" uid="uid://bbluwahfxngl4" path="res://scenes/ui/day_and_night_panel.gd" id="2_xc6ft"]
+[ext_resource type="PackedScene" uid="uid://rn2k552p10qq" path="res://scenes/apiGeo/geo_localizador.tscn" id="3_k3f4j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xc6ft"]
 atlas = ExtResource("2_25t5k")
@@ -16,9 +17,12 @@ script = ExtResource("2_xc6ft")
 
 [node name="DayPanel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = -80.0
-offset_bottom = 26.0
+offset_left = -81.0
+offset_top = 28.0
+offset_right = -1.0
+offset_bottom = 54.0
 theme_type_variation = &"DayAndNightCounterPanel"
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="DayPanel"]
 layout_mode = 2
@@ -35,10 +39,12 @@ text = "Day 0"
 
 [node name="TimePanel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = -80.0
-offset_top = 28.0
-offset_bottom = 54.0
+offset_left = -81.0
+offset_top = 55.0
+offset_right = -1.0
+offset_bottom = 81.0
 theme_type_variation = &"DayAndNightCounterPanel"
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="TimePanel"]
 layout_mode = 2
@@ -53,11 +59,34 @@ size_flags_horizontal = 4
 theme_type_variation = &"DayAndNightLabel"
 text = "00:00"
 
+[node name="Location" type="PanelContainer" parent="."]
+layout_direction = 3
+layout_mode = 2
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 27.0
+theme_type_variation = &"DayAndNightCounterPanel"
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Location"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="LocationLabel" type="Label" parent="Location/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DayAndNightLabel"
+text = "00:00"
+
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
 offset_left = -80.0
-offset_top = 56.0
-offset_bottom = 74.0
+offset_top = 83.0
+offset_bottom = 101.0
 
 [node name="NormalSpeedButton" type="Button" parent="Control"]
 layout_mode = 0
@@ -167,6 +196,9 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_xc6ft")
+
+[node name="GeoLocalizador" parent="." instance=ExtResource("3_k3f4j")]
+position = Vector2(-80, 56)
 
 [connection signal="pressed" from="Control/NormalSpeedButton" to="." method="_on_normal_speed_button_pressed"]
 [connection signal="pressed" from="Control/FastSpeedButton" to="." method="_on_fast_speed_button_pressed"]

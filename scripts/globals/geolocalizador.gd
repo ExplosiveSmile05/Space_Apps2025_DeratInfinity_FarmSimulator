@@ -3,6 +3,7 @@ extends Node
 @onready var http := HTTPRequest.new()
 
 const API_KEY = "e839b932e3ca7ad602e999c88625f8bc"
+@onready var location_label: Label = $"../Location/MarginContainer/LocationLabel"
 
 func _ready():
 	add_child(http)
@@ -25,7 +26,7 @@ func _on_request_completed(result, response_code, headers, body):
 	var ciudad = data["city"]
 	var pais = data["country"]
 
-	print("📍 Ubicación detectada:", ciudad, pais, "Lat:", lat, "Lon:", lon)
+	location_label.text = ciudad
 	obtener_clima(lat, lon, ciudad, pais)
 
 func obtener_clima(lat: float, lon: float, ciudad: String, pais: String):
